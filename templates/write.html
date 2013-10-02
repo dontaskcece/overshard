@@ -1,0 +1,13 @@
+    {%extends "layout.html"%}
+{%block body%}
+{%if not session["logged"]%}
+
+<h1>only for register</h1>
+{%else%}
+<form method="POST" action="/write">
+    {{ form.hidden_tag() }}
+    {{ form.content.label }} {{ form.content(size=20) }}
+    <input type="submit" value="Go">
+</form>
+{%endif%}
+{%endblock%}

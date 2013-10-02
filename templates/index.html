@@ -1,0 +1,26 @@
+{%extends "layout.html" %}
+
+
+{% block body %}
+
+{%if not session["logged"]%}
+
+
+<h2>register only</h2>
+
+
+{%else%}
+<a href="{{url_for("upload")}}">upload</a>
+<a href="{{url_for("write")}}">write</a>
+
+<ol>
+{%for c in content%}
+<li>
+{{c.content}}    <a href="{{url_for("delete",id=c.id)}}">del</a>
+</li>
+{%endfor%}
+</ol>
+{%endif%}
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+    {%extends "layout.html"%}
+{%block body%}
+{%if not session["logged"]%}
+
+<h1>only for register</h1>
+{%else%}
+    <form action="/upload" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form> 
+
+{%endif%}
+
+{%endblock%}

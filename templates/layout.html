@@ -1,0 +1,56 @@
+<html>
+<title>learn flask</title>
+
+<head>
+<link rel=stylesheet type=text/css href="{{url_for("static",filename="style.css")}}">
+
+</head>
+
+
+{% if not session['logged']%}
+
+<a href="{{url_for("login")}}">login</a>
+
+{% else%}
+ hi {{session["username"]}} 
+
+
+<a href="{{url_for("logout")}}">logout</a>
+{%endif%}
+
+
+
+
+<!--
+flash 
+-->
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<hr />
+
+<!--
+this main body 
+-->
+
+<body>
+{% block body %}{% endblock %}
+
+</body>
+
+
+<br />
+All rights reserved 
+
+<hr />
+Rendered in {{ g.request_time() }}
+
+</html>
