@@ -1,0 +1,8 @@
+#!/home/cece/important/codes/overshard/oenv/bin/python2
+
+import sys
+
+from Cython.Debugger import Cygdb as cygdb
+
+if __name__ == '__main__':
+    cygdb.main()
